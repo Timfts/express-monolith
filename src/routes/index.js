@@ -7,19 +7,8 @@ const webpack = require("webpack");
 function getRoutes() {
   const appRouter = Router();
 
-  appRouter.get("/cenoura", async (req, res) => {
-    const viewPath = path.resolve(__dirname, "../ui/pages/home");
-    const viewEjs = fs.readFileSync(`${viewPath}/index.ejs`, {
-      encoding: "utf-8",
-    });
-
-    const template = ejs.render(viewEjs, { cenoura: "lal", viewPath });
-
-    res.status(200).set({ "Content-Type": "text/html" }).end(template);
-  });
-
   appRouter.get("*", async (req, res) => {
-    const pagesFolder = path.resolve(__dirname, "../routes/");
+    const pagesFolder = path.resolve(__dirname, "../ui/pages");
     const aboutPageFolder = `${pagesFolder}/about/index.json`;
     const componentRootContent = fs.readFileSync(aboutPageFolder, {
       encoding: "utf-8",
