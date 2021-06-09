@@ -1,0 +1,5 @@
+{
+  "template": "./template.ejs",
+  "style": "./style.scss",
+  "script": "./script.module.js"
+}
